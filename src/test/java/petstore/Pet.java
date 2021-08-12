@@ -8,7 +8,9 @@ import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.contains;
 
 public class Pet {
 
@@ -33,6 +35,8 @@ public class Pet {
                 .statusCode(200)
                 .body("name", is("Jack"))
                 .body("status", is("available"))
+                .body("category.name", containsString("dog")) //pode ser feito com "is" também
+                .body("tags.name", contains("name"))
         ;
 
     }
