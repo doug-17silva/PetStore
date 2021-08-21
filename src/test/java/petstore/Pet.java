@@ -8,8 +8,7 @@ import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.contains;
 
 public class Pet {
@@ -99,6 +98,26 @@ public class Pet {
                 .body("code", is(200))
                 .body("type", is("unknown"))
                 .body("message", is(petId))
+        ;
+
+    }
+
+    @Test(priority=5)
+    public void consultarPetPorStatus() {
+        String status = "available";
+
+        given()
+                .contentType("application/json")
+                .log().all()
+        .when()
+                .get(uri +  "/findByStatus?status=" + status)
+        .then()
+                .log().all()
+                .statusCode(200)
+                .body("name[]", everyItem(equalTo("Charlie Brown")))
+
+//                .body("name", contains("[\"Charlie Brown\"]")) // vamos arrumar na próxima aula (24/08/2021)
+
         ;
 
     }
