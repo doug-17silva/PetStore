@@ -1,0 +1,76 @@
+Request method:	POST
+2Request URI:	https://petstore.swagger.io/v2/user
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+2				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "firstName": "charlie",
+    "lastName": "brown",
+    "password": "123456",
+    "userStatus": "0",
+    "phone": "11999999999",
+    "id": "1001",
+&    "email": "charliebrown@test.com",
+    "username": "charlie"
+}
+HTTP/1.1 200 OK
+%Date: Sat, 28 Aug 2021 16:12:13 GMT
+ Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+ Access-Control-Allow-Origin: *
+6Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+DAccess-Control-Allow-Headers: Content-Type, api_key, Authorization
+ Server: Jetty(9.2.9.v20150224)
+
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "1001"
+}
+O userId Ã©: 1001
+Request method:	POST
+2Request URI:	https://petstore.swagger.io/v2/user
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+2				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "firstName": "lucy",
+    "lastName": "carter",
+    "password": "654321",
+    "userStatus": "0",
+    "phone": "11888888888",
+    "id": "1002",
+$    "email": "lucycarter@test.com",
+    "username": "lucy"
+}
+HTTP/1.1 200 OK
+%Date: Sat, 28 Aug 2021 16:12:17 GMT
+ Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+ Access-Control-Allow-Origin: *
+6Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+DAccess-Control-Allow-Headers: Content-Type, api_key, Authorization
+ Server: Jetty(9.2.9.v20150224)
+
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "1002"
+}
+O userId Ã©: 1002
