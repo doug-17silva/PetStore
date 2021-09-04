@@ -2,10 +2,9 @@ package datadriven;
 
 import netscape.javascript.JSObject;
 import org.json.JSONObject;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import utils.Data;
+import utils.Log;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,11 +23,14 @@ public class UserDD {
 
     String uri = "https://petstore.swagger.io/v2/user\n";
     Data data;
+    Log log;
+    int contador = 0;
+    double soma; //somar os valores das senhas (somente para verificar como fazer uma soma
 
     @DataProvider //Provedor de dados para os testes
     public Iterator<Object[]> provider() throws IOException {
         List<Object[]> usersTestData  = new ArrayList<>();
-        String[] testCase = null; //Ã© um array pq guarda todos os dados de um usuÃ¡rio
+        String[] testCase = null; //é um array pq guarda todos os dados de um usuário
         String linha = null;
         BufferedReader bufferedReader = new BufferedReader(new FileReader("db/users.csv"));
 
@@ -40,14 +42,24 @@ public class UserDD {
         return usersTestData.iterator();
     }
 
-    @BeforeMethod
-    public void setup() {
+    @BeforeClass //Antes da classe que executa os testes
+    public void setup() throws IOException {
         data = new Data();
+//        log = new Log();
+        log.iniciarLog(); //criar o arquivo e escrever a linha do cabeçalho
     }
+
+    @AfterClass //É executado depois que todos os testes da classe são executados
+    public void tearDown() {
+        System.out.println("TOTAL DE REGISTROS: " + contador); //imprime a tde de registros
+        System.out.println("SOMA TOTAL: " + soma);
+    }
+
 
     @Test(dataProvider = "provider")
     public void incluirUsuario(String id, String username, String firstName, String lastName, String email, String password,String phone, String userStatus) throws IOException {
-//        String jsonBoby = Data.lerJson("db/user1.json"); //caso seja criado mÃ©todo estÃ¡tico
+//        String jsonBoby = Data.lerJson("db/user1.json"); //caso seja criado método estático
+
         String jsonBody = new JSONObject()
         .put("id", id)
         .put("username", username)
@@ -75,7 +87,10 @@ public class UserDD {
                         .path("message")
                 ;
 
-        System.out.println("O userId Ã©: " + userId);
+        System.out.println("O userId é: " + userId);
+        contador += 1;
+        System.out.println("Essa é a linha " + contador); //a cada execução imprime o número de regitros inseridos
+        soma = soma + Double.parseDouble(password);
 
     }
 

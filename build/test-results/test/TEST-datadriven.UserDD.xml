@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="datadriven.UserDD" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-08-28T16:12:05" hostname="NBBV020098" time="13.273">
+<testsuite name="datadriven.UserDD" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-09-04T15:19:25" hostname="NBBV020098" time="8.437">
   <properties/>
-  <testcase name="incluirUsuario[0](1001, charlie, charlie, brown, charliebrown@test.com, 123456, 11999999999, 0)" classname="datadriven.UserDD" time="11.952"/>
-  <testcase name="incluirUsuario[1](1002, lucy, lucy, carter, lucycarter@test.com, 654321, 11888888888, 0)" classname="datadriven.UserDD" time="1.303"/>
-  <system-out><![CDATA[Request method:	POST
+  <testcase name="incluirUsuario[0](1001, charlie, charlie, brown, charliebrown@test.com, 123456, 11999999999, 0)" classname="datadriven.UserDD" time="7.376"/>
+  <testcase name="incluirUsuario[1](1002, lucy, lucy, carter, lucycarter@test.com, 600000, 11888888888, 0)" classname="datadriven.UserDD" time="1.05"/>
+  <system-out><![CDATA[Data e hota: 2021-09-04 12-19
+Request method:	POST
 Request URI:	https://petstore.swagger.io/v2/user
 Proxy:			<none>
 Request params:	<none>
@@ -26,7 +27,7 @@ Body:
     "username": "charlie"
 }
 HTTP/1.1 200 OK
-Date: Sat, 28 Aug 2021 16:12:13 GMT
+Date: Sat, 04 Sep 2021 15:19:28 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -40,7 +41,8 @@ Server: Jetty(9.2.9.v20150224)
     "type": "unknown",
     "message": "1001"
 }
-O userId Ã©: 1001
+O userId é: 1001
+Essa é a linha 1
 Request method:	POST
 Request URI:	https://petstore.swagger.io/v2/user
 Proxy:			<none>
@@ -56,7 +58,7 @@ Body:
 {
     "firstName": "lucy",
     "lastName": "carter",
-    "password": "654321",
+    "password": "600000",
     "userStatus": "0",
     "phone": "11888888888",
     "id": "1002",
@@ -64,7 +66,7 @@ Body:
     "username": "lucy"
 }
 HTTP/1.1 200 OK
-Date: Sat, 28 Aug 2021 16:12:17 GMT
+Date: Sat, 04 Sep 2021 15:19:31 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -78,7 +80,8 @@ Server: Jetty(9.2.9.v20150224)
     "type": "unknown",
     "message": "1002"
 }
-O userId Ã©: 1002
+O userId é: 1002
+Essa é a linha 2
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
